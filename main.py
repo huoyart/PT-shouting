@@ -19,7 +19,8 @@ print(today)
 
 
 #初始化所有response
-response_1,response_2,response_3,response_4,response_5,response_6,response_7,response_8,=None,None,None,None,None,None,None,None
+response_1, response_2, response_3, response_4, response_5, response_6, response_7, response_8, response_9 = None, None, None, None, None, None, None, None, None
+
 status_code=None
 file_path="config.json"
 if os.path.exists(file_path):
@@ -42,15 +43,24 @@ with open('config.json', 'r', encoding='utf-8') as f:
 cookies_cyanbug = cookies_data['cyanbug']
 cookies_tosky = cookies_data['tosky']
 cookies_qingwapt = cookies_data['qingwapt']
+cookies_xiangdao = cookies_data['xiangdao']
+cookies_zmpt = cookies_data['zmpt']
+
+
+print(cookies_xiangdao)
 iyuu_key = cookies_data.get("iyuu_key", "")
 iyuuurl = f"https://iyuu.cn/{iyuu_key}.send"
-
 tosky喊 = cookies_data.get("tosky喊","")
 青蛙喊=cookies_data.get("青蛙喊","")
 大青虫喊=cookies_data.get("大青虫喊","")
+象岛喊=cookies_data.get("象岛喊","")
+zmpt喊=cookies_data.get("zmpt喊","")
+
+
+
 大青虫固定几号喊VIP=cookies_data.get("大青虫固定几号喊VIP","")
 int(大青虫固定几号喊VIP)
-print(tosky喊,青蛙喊,大青虫喊)
+print(tosky喊,青蛙喊,大青虫喊,象岛喊)
 print(大青虫固定几号喊VIP)
 
 
@@ -240,6 +250,7 @@ headers = {
 
 #青蛙
 
+
 if 青蛙喊== "开" :
     try:
         response_7 = requests.get(url, headers=headers, cookies=cookies_qingwapt, params=params7)
@@ -259,13 +270,109 @@ if 青蛙喊== "开" :
 
 
 
+#象岛
+xdurl="https://ptvicomo.net/shoutbox.php"
+params9 = {
+    'shbox_text': '小象求象草',
+    'shout': '发送',
+    'sent': 'yes',
+    'type': 'shoutbox'
+}
+
+
+
+headers = {
+    'Host': 'ptvicomo.net',
+    'Sec-Ch-Ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
+    'Sec-Ch-Ua-Mobile': '?0',
+    'Sec-Ch-Ua-Platform': '"Windows"',
+    'Upgrade-Insecure-Requests': '1',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-User': '?1',
+    'Sec-Fetch-Dest': 'iframe',
+    'Referer': 'https://ptvicomo.net/index.php',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'zh-CN,zh;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6,zh-HK;q=0.5,zh-TW;q=0.4',
+    'Priority': 'u=0, i'
+}
+
+
+if 象岛喊=="开":
+    try:
+        response_9 = requests.get(xdurl, headers=headers, cookies=cookies_xiangdao, params=params9)
+        print("Response 9:")
+        print(response_9.text)
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error during request 3: {e}")
+
+
+
+#zmpt
+
+
+xdurl="https://zmpt.cc/shoutbox.php"
+params10 = {
+    'shbox_text': '皮总，求电力',
+    'shout': '发送',
+    'sent': 'yes',
+    'type': 'shoutbox'
+}
+params11 = {
+    'shbox_text': '皮总，求上传',
+    'shout': '发送',
+    'sent': 'yes',
+    'type': 'shoutbox'
+}
+
+
+
+headers = {
+    'Host': 'zmpt.cc',
+    'Sec-Ch-Ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
+    'Sec-Ch-Ua-Mobile': '?0',
+    'Sec-Ch-Ua-Platform': '"Windows"',
+    'Upgrade-Insecure-Requests': '1',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-User': '?1',
+    'Sec-Fetch-Dest': 'iframe',
+    'Referer': 'https://zmpt.cc/index.php',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'zh-CN,zh;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6,zh-HK;q=0.5,zh-TW;q=0.4',
+    'Priority': 'u=0, i'
+}
+
+
+
+
+if zmpt喊=="开":
+    try:
+        response_10=requests.get(xdurl, headers=headers, cookies=cookies_zmpt, params=params10)
+        print("Response 10:")
+        print(response_10.text)
+    except requests.exceptions.RequestException as e:
+        print(f"Error during request 3: {e}")
+
+    try:
+        response_11 = requests.get(xdurl, headers=headers, cookies=cookies_zmpt, params=params11)
+        print("Response 11:")
+        print(response_11.text)
+    except requests.exceptions.RequestException as e:
+        print(f"Error during request 3: {e}")
 
 
 
 
 
 #初始化iyuu返回值
-r1, r2, r3, r4, r5, r6, r7, r8 = "", "", "", "", "", "", "", ""
+r1, r2, r3, r4, r5, r6, r7, r8,r9,r10,r11= "", "", "", "", "", "", "", "","","",""
+
 # 检查每个响应状态
 if response_1 is not None:
     if response_1.status_code < 300:
@@ -332,6 +439,38 @@ else:
     r8 = "青蛙求下载失败，无响应\n"
 
 
+if response_9 is not None:
+    if response_9.status_code < 300:
+        r9 = "象岛求象草成功\n"
+    else:
+        r9 = "象岛求象草失败，HTTP响应: " + str(response_9.status_code) + "\n"
+else:
+    r9 = "象岛求象草失败，无响应\n"
+
+
+
+
+
+if response_10 is not None:
+    if response_10.status_code < 300:
+        r10 = "织梦求电力成功\n"
+    else:
+        r10 = "织梦求电力失败失败，HTTP响应: " + str(response_9.status_code) + "\n"
+else:
+    r10 = "织梦求电力失败，无响应\n"
+
+
+if response_11 is not None:
+    if response_11.status_code < 300:
+        r11 = "织梦求上传成功\n"
+    else:
+        r11 = "织梦求上传失败，HTTP响应: " + str(response_9.status_code) + "\n"
+else:
+    r11 = "织梦求上传失败，无响应\n"
+
+
+
+
 
 
 
@@ -340,7 +479,7 @@ else:
 # 打印各个请求的HTTP响应状态码
 # 定义text和desp变量
 text = "自动发送get请求"
-desp = r1+r2+r3+r4+r5+r6+r7
+desp = r1+r2+r3+r4+r5+r6+r7+r8+r9+r10+r11
 
 # 定义请求参数
 params = {
