@@ -1,9 +1,11 @@
 {
     "iyuu_key": "",
-	"大青虫喊": "开",
-	"青蛙喊": "开",
-	"tosky喊": "开",
-	"大青虫固定几号喊VIP":"2",
+    "大青虫喊": "关",
+    "青蛙喊": "关",
+    "tosky喊": "关",
+    "象岛喊": "关",
+	"zmpt喊": "关",
+    "大青虫固定几号喊VIP": "2",
     "cyanbug": {
         "c_secure_uid": "",
         "c_secure_pass": "",
@@ -24,5 +26,19 @@
         "c_secure_ssl": "your_ssl",
         "c_secure_tracker_ssl": "your_tracker_ssl",
         "c_secure_login": "your_login"
+    },
+    "xiangdao": {
+        "c_secure_uid": "",
+        "c_secure_pass": "",
+        "c_secure_ssl": "",
+        "c_secure_tracker_ssl": "",
+        "c_secure_login": ""
+    },
+	"zmpt": {
+        "c_secure_uid": "",
+        "c_secure_pass": "",
+        "c_secure_ssl": "",
+        "c_secure_tracker_ssl": "",
+        "c_secure_login": ""
     }
 }
